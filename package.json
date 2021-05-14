@@ -1,0 +1,29 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "node dist/index.js",
+    "start2": "ts-node bin/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "GenerateMonthlyPayslip": "./bin/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.3",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@types/boxen": "^3.0.1",
+    "@types/chalk": "^2.2.0",
+    "@types/yargs": "^16.0.1",
+    "boxen": "4.0",
+    "chalk": "2.4",
+    "ts-node": "^9.1.1",
+    "yargs": "^17.0.1"
+  }
+}
