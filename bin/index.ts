@@ -4,6 +4,8 @@ import chalk from "chalk";
 import boxen, { BorderStyle } from "boxen";
 import yargs from "yargs";
 
+
+// set tax point for different range
 enum taxBreakpoint {
     Low = 20000,
     Mid = 40000,
@@ -11,6 +13,8 @@ enum taxBreakpoint {
     Higher = 180000
 }
 
+
+// set rate point for different range
 enum rateBreakpoint {
     Low = 0.1,
     Mid = 0.2,
@@ -18,6 +22,7 @@ enum rateBreakpoint {
     Higher = 0.4
 }
 
+// helper function for calculating the tax
 const exceedTaxCalculator = (total: taxBreakpoint, base: taxBreakpoint, rate: rateBreakpoint): number => {
     return (total - base) * rate
 }
@@ -29,6 +34,7 @@ let lowbase = exceedTaxCalculator(taxBreakpoint.Mid, taxBreakpoint.Low, rateBrea
 let midbase = exceedTaxCalculator(taxBreakpoint.High, taxBreakpoint.Mid, rateBreakpoint.Mid) + lowbase;
 let highbase = exceedTaxCalculator(taxBreakpoint.Higher, taxBreakpoint.High, rateBreakpoint.High) + midbase;
 
+// main function for generating monthly tax
 const generateMontylyPayslip = (annualPay: number): number => {
 
     if (annualPay <= taxBreakpoint.Low) {
@@ -66,6 +72,7 @@ netMonthlyIncome = grossMonthlyIncome - monthlyIncomeTax;
 
 const greeting = chalk.white.bold(`Monthly Payslip for: ${options.name} \nGross Monthly Income: ${grossMonthlyIncome} \nMonthly Income Tax: ${monthlyIncomeTax} \nNet Monthly Income: ${netMonthlyIncome}`);
 
+//console output box options
 const boxenOptions = {
     padding: 1,
     margin: 1,
@@ -73,6 +80,7 @@ const boxenOptions = {
     borderColor: "green",
     backgroundColor: "#555555"
 };
+
 const msgBox = boxen(greeting, boxenOptions);
 
 console.log(msgBox);
