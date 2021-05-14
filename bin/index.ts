@@ -64,8 +64,6 @@ const options = yargs
 
 grossMonthlyIncome = options.p / 12
 
-console.log("grossMonthlyIncome", grossMonthlyIncome)
-
 const monthlyIncomeTax: number = generateMontylyPayslip(options.p)
 
 netMonthlyIncome = grossMonthlyIncome - monthlyIncomeTax;
