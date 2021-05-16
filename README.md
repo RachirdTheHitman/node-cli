@@ -65,9 +65,14 @@ You need to have ndoejs installed in your local machine and then download the fi
 
 ### Usage
 
-2. Run command or equivalent npm commands
+1. Run command or equivalent npm commands
    ```sh
    yarn start2 -n <your name> -p <your annual pay>
+   ```
+   
+2. Run command or equivalent npm commands to run tests for main monthly tax generate function
+   ```sh
+   yarn test
    ```
 
 
