@@ -8,6 +8,7 @@ const options = yargs
     .option("n", { alias: "name", describe: "Your Name", type: "string", demandOption: true })
     .option("p", { alias: "pay", describe: "Your Annual Pay", type: "number", demandOption: true })
     .check((argv) => {
+        // check if input value for annual pay is negative
         if (argv.p < 0) {
             throw new Error("negative number is not accepted!")
         } else {
